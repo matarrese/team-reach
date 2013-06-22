@@ -84,7 +84,7 @@
           <h4><?PHP echo $title;?></h4>
           
           <div class="video-container">
-          <iframe width="560" height="315" src="<?PHP echo $videoURL;?>" frameborder="0" allowfullscreen></iframe> </div>
+          <iframe width="560" height="315" src="<?PHP echo "http://www.youtube.com/embed/" . $videoURL;?>" frameborder="0" allowfullscreen></iframe> </div>
           <p><strong>Brief:</strong> <?PHP echo $description;?> </p>
           <p><strong>Team members:
 		  <?PHP
