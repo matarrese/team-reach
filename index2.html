@@ -1,0 +1,48 @@
+	<html>
+	<head>
+		<title>LinkedIn JavaScript API Hello World</title>
+	<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+	api_key: 6qq12xjqgi2o
+	scope: r_basicprofile r_emailaddress
+	onLoad: onLinkedInLoad
+	authorize: true
+	</script>
+	<script type='text/javascript' language='JavaScript'>
+	function logout(){
+	//Here we want to wait until the response as come, than only we redirect our website url.
+	IN.User.logout(onLinkedInLogout);
+	}
+	function onLinkedInLogout(){
+	window.location='your site logout url';
+	//for example window.location='http://linkedin.com/user/logout';
+	}
+	</script>
+	//Login
+	<script type="IN/Login"></script>
+	<div id="profiles"></div>
+	//Logout
+	<a href="#" OnClick="return logout();">Logout</a>
+	<script type="text/javascript">
+	function onLinkedInLoad() {
+	IN.Event.on(IN, "auth", onLinkedInAuth);
+	}
+	function onLinkedInAuth() {
+	IN.API.Profile("me").fields("id,firstName,lastName,emailAddress").result(function (me) {
+	var member = me.values[0];
+	alert(member.firstName);
+	alert(member.lastName);
+	alert(member.emailAddress);
+	});
+	}
+	</script>
+
+	<body>
+
+		<!-- 3. Displays a button to let the viewer authenticate -->
+		<script type="IN/Login"></script>
+
+		<!-- 4. Placeholder for the greeting -->
+		<div id="profiles"></div>
+
+	</body>
+	</html>
