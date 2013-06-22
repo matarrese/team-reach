@@ -1,50 +1,3 @@
-<?PHP
-	//Get ProjectID
-	$projectID = $_GET["projectID"];
-	$mysqli = new mysqli("localhost","zcqmprce_teamusr","3rU(SMqayK5$","zcqmprce_teamreach");
-	if ($mysqli->connect_errno) {
-		echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-	}
-	$query = $mysqli->stmt_init();
-	if (!($query = $mysqli->prepare("SELECT Title,VideoURL,Name,Description,Username FROM Project, Needs, Skills, User WHERE Project.ID = ? AND Project.ID = Needs.Project_ID AND Needs.Skills_ID = Skills.ID AND User.ID=Project.Author LIMIT 0 , 30"))) {
-		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-	}
-	if (!$query->bind_param("i", $projectID)) {
-		echo "Binding parameters failed: (" . $query->errno . ") " . $query->error;
-	}
-	if (!$query->execute()) {
-		echo "Execute failed: (" . $query->errno . ") " . $query->error;
-	}
-	if (!$query->bind_result($title,$videoURL,$tempSkills,$description,$username)) {
-		echo "Binding results failed: (" . $query->errno . ") " . $query->error;
-	}
-	$skills = array();
-	while($query->fetch()) {
-		array_push($skills,$tempSkills);
-	}
-	$query->close();
-	$query = $mysqli->stmt_init();
-	if (!($query = $mysqli->prepare("SELECT Username,LinkedInURL FROM User,Project,Works_on WHERE Project.ID = ? AND User.ID = Works_on.User_ID AND Works_on.Project_ID = Project.ID"))) {
-		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-	}
-	if (!$query->bind_param("i", $projectID)) {
-		echo "Binding parameters failed: (" . $query->errno . ") " . $query->error;
-	}
-	if (!$query->execute()) {
-		echo "Execute failed: (" . $query->errno . ") " . $query->error;
-	}
-	if (!$query->bind_result($tempUsernames,$tempLinkedInURLs)) {
-		echo "Binding results failed: (" . $query->errno . ") " . $query->error;
-	}
-	$usernames = array();
-	$linkedInURLs = array();
-	while($query->fetch()) {
-		array_push($usernames,$tempUsernames);
-		array_push($linkedInURLs,$tempLinkedInURLs);
-	}
-	$query->close();
-	$mysqli->close();
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,25 +34,15 @@
 
         <div class="span9">
           <div class="padding">
-          <h4><?PHP echo $title;?></h4>
+          <h4>Heading</h4>
           
           <div class="video-container">
-          <iframe width="560" height="315" src="<?PHP echo $videoURL;?>" frameborder="0" allowfullscreen></iframe> </div>
-          <p><strong>Brief:</strong> <?PHP echo $description;?> </p>
-          <p><strong>Team members:
-		  <?PHP
-			for($i = 0; $i < count($usernames); ++$i) {
-				echo "<a href='" . $linkedInURLs[$i] . "'>" . $usernames[$i] . "</a> ";
-			}
-		  ?>
-		  </p>
-          <p><strong>Skills needed:</strong>
-          <?PHP
-			foreach($skills as $skill) {
-				echo "<code>" . $skill . "</code> ";
-			}
-		  ?>
-          </p>
+          <iframe width="560" height="315" src="http://www.youtube.com/embed/M92BRHgKPb0" frameborder="0" allowfullscreen></iframe> </div>
+          <p><strong>Brief:</strong> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><strong>Team members:</strong> <a href="#">Jonathan Lloyd</a></p>
+          <p><strong>Skills needed:</strong> <code>Javascript</code> <code>HTML</code> <code>CSS</code> <code>JQuery</code></p>
+          
+          
           
           </div>
           </div> 
