@@ -5,10 +5,10 @@ $comment_post_ID = $_GET["projectID"];
 $db = new Persistence();
 $comments = $db->get_comments($comment_post_ID);
 $has_comments = (count($comments) > 0);
-?>
 
 
-<?PHP
+
+
 	//Get ProjectID
 	$projectID = $_GET["projectID"];
 	$mysqli = new mysqli("localhost","zcqmprce_teamusr","3rU(SMqayK5$","zcqmprce_teamreach");
@@ -70,7 +70,7 @@ $has_comments = (count($comments) > 0);
     <link href="./css/single.css" rel="stylesheet">
     
     <link href="./css/bootstrap-responsive.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="./js/html5shiv.js"></script>
