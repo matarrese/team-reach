@@ -70,7 +70,7 @@ $has_comments = (count($comments) > 0);
     <link href="./css/single.css" rel="stylesheet">
     
     <link href="./css/bootstrap-responsive.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="./js/html5shiv.js"></script>
