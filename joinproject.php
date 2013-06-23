@@ -15,5 +15,5 @@
 	if (!$query->execute()) {
 		echo "Execute failed: (" . $query->errno . ") " . $query->error;
 	}
-	header( 'Location:/projectlist.php' ) ;
+	echo "You have joined the project! <a href='projectlist.php'>Go Back</a>";
 ?>

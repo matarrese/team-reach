@@ -117,7 +117,7 @@ $has_comments = (count($comments) > 0);
         
         <div class="span9">
           <div class="padding">
-          <button class="btn btn-large btn-primary pull-center" type="button">Express Interest</button>
+          <button class="btn btn-large btn-primary pull-center" type="button" <?PHP echo "onclick=\"window.location.href='joinproject.php?projectID=" . 1 . "&userID=" . 1 . "'\"";?>>Join Project</button>
         </div>
         </div>  
 
