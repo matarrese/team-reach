@@ -73,7 +73,7 @@
 			echo "Binding results failed: (" . $skillsQuery->errno . ") " . $skillsQuery->error;
 		}
 		while($skillsQuery->fetch()) {
-			echo "<code>" . $skill . "</code>";
+			echo " <code>" . $skill . "</code> ";
 		}
 		echo "</p>
           <p><a class='btn pull-right' href='project.php?projectID=" . $counter . "'>View details &raquo;</a></p>
