@@ -35,15 +35,8 @@
                 <input type="text" name="video_title" />
                 <label for="video_description">Video Description</label>
                 <textarea id="video-description" name="video_description"></textarea>
-                <input type="submit" value="Step 2" />
-            </form> <!-- /form -->
+            </form>
 
-        <!-- Step 2 -->
-        <?php elseif( $response->token != '' ) : ?>
-            <h4>Title:</h4>
-            <p><?php echo $video_title; ?></p>
-            <h4>Description:</h4>
-            <p><?php echo $video_description; ?></p>
             <form action="<?php echo( $response->url ); ?>?nexturl=<?php echo( urlencode( $nexturl ) ); ?>" method="post" enctype="multipart/form-data">
                 <p class="block">
                     <label>Upload Video</label>
