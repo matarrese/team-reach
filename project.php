@@ -63,8 +63,7 @@ $has_comments = (count($comments) > 0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-     <link rel="stylesheet" href="css/global-forms.css" type="text/css" />
-  <link rel="stylesheet" href="css/main.css" type="text/css" />
+ 
     <!-- Le styles -->
     <link href="./css/bootstrap.css" rel="stylesheet">
     <link href="./css/single.css" rel="stylesheet">
@@ -163,16 +162,16 @@ $has_comments = (count($comments) > 0);
       <form action="post_comment.php" method="post" id="commentform">
 
         <label for="comment_author" class="required">Your name</label>
-        <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
-        
+        <input class="input-xxlarge" type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
+                                                           <br />
         <label for="email" class="required">Your email</label>
-        <input type="email" name="email" id="email" value="" tabindex="2" required="required">
-
+        <input class="input-xxlarge" type="email" name="email" id="email" value="" tabindex="2" required="required">
+                                                     <br />
         <label for="comment" class="required">Your message</label>
-        <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
-
-        <input type="hidden" name="comment_post_ID" value="<?php echo($comment_post_ID); ?>" id="comment_post_ID" />
-        <input name="submit" type="submit" value="Submit comment" />
+        <textarea class="input-xxlarge" name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
+                                               <br />
+        <input class="input-xxlarge" type="hidden" name="comment_post_ID" value="<?php echo($comment_post_ID); ?>" id="comment_post_ID" />                            <br />
+    <button type="submit" class="btn">Submit</button>
         
       </form>
       
