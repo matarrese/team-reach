@@ -100,7 +100,7 @@ $has_comments = (count($comments) > 0);
           <p><strong>Team members:
 		  <?PHP
 			for($i = 0; $i < count($usernames); ++$i) {
-				echo "<a href='" . $linkedInURLs[$i] . "'>" . $usernames[$i] . "</a> ";
+				echo "<a href='" . $linkedInURLs[$i] . "'>" . $usernames[$i] . "</a>&nbsp;&nbsp;&nbsp;";
 			}
 		  ?>
 		  </p>
